@@ -14,6 +14,7 @@ import (
 func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/", handler.Main)
+	r.HandleFunc("/healthz", handler.Healthz)
 
 	fmt.Println("running server")
 	if err := http.ListenAndServe(":80", handlers.LoggingHandler(os.Stdout, r)); err != nil {
