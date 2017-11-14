@@ -2,7 +2,7 @@ package sample_test
 
 import (
 	"testing"
-	"webapp/app/sample"
+	"webapp/sample"
 )
 
 func TestHi(t *testing.T) {

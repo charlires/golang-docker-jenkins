@@ -12,6 +12,9 @@ BUILD_ARGS=--build-arg IMAGE_NAME=$(IMAGE_NAME) --build-arg APP_NAME=$(APP_NAME)
 # net port for webapp
 PORT=8080
 
+install:
+	@echo ":::install all the crap"
+
 publish:
 	@echo ":::build publish image"
 	docker push $(IMAGE_NAME):$(BASE_TAG)
@@ -30,7 +33,7 @@ build-test:
 
 test-unit:
 	@echo ":::running unit tests"
-	docker run --rm -i -v $(shell pwd)/report:/go/src/${APP_NAME}/report $(IMAGE_NAME)-test:$(BASE_TAG)
+	docker run --rm -i $(IMAGE_NAME)-test:$(BASE_TAG)
 
 run:
 	@echo ":::running dev environment"

@@ -10,9 +10,8 @@ pipeline {
     stage('run tests') {
       steps {
         sh 'make build-test'
-        sh 'make test-unit'
-        sh 'ls'
-        junit 'report/report.xml'
+        sh 'make test-unit > report.xml'
+        junit 'report.xml'
       }
     }
     stage('build image') {
